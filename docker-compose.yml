@@ -1,0 +1,25 @@
+services:
+  devops-cli:
+    build:
+      context: https://github.com/metf/devops-office.git#main
+      dockerfile: Dockerfile
+    container_name: devops-cli
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./devopsdata:/home/devops
+    environment:
+      GEMINI_API_KEY: ""
+      AWS_ACCESS_KEY_ID: ""
+      AWS_SECRET_ACCESS_KEY: ""
+      AWS_DEFAULT_REGION: ""
+      AZURE_SUBSCRIPTION_ID: ""
+      AZURE_CLIENT_ID: ""
+      AZURE_SECRET: ""
+      AZURE_TENANT: ""
+      GOOGLE_APPLICATION_CREDENTIALS: ""
+      VAULT_TOKEN: ""
+      VAULT_ADDR: ""
+      GITHUB_TOKEN: ""
+      PULUMI_ACCESS_TOKEN: ""
+    restart: unless-stopped
