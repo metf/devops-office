@@ -131,15 +131,8 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
     apt-get update && apt-get install -y gh
 
-## VSCode CLI
-RUN curl -L https://update.code.visualstudio.com/latest/linux-deb-x64/stable -o vscode.deb && \
-    apt-get install -y ./vscode.deb && rm vscode.deb
-
 ## Postman CLI (newman)
 RUN npm install -g newman
-
-## Lens (AppImage)
-RUN wget https://github.com/lensapp/lens/releases/latest/download/Lens-x86_64.AppImage -O /usr/local/bin/Lens.AppImage && chmod +x /usr/local/bin/Lens.AppImage
 
 ## Gemini CLI, Qwen Code, Claude Code CLI, Aider
 RUN npm install -g @qwen-code/qwen-code @google-gemini/gemini-cli && \
