@@ -105,14 +105,6 @@ RUN wget https://github.com/tektoncd/cli/releases/latest/download/tkn_amd64.deb 
 RUN wget https://github.com/prometheus/prometheus/releases/latest/download/prometheus-*-amd64.tar.gz -O prometheus.tar.gz && \
     tar xzf prometheus.tar.gz && mv prometheus-*/promtool /usr/local/bin/ && rm -rf prometheus*
 
-## Grafana CLI
-RUN wget https://dl.grafana.com/oss/release/grafana-10.3.3.linux-amd64.tar.gz && \
-    tar -xzf grafana-10.3.3.linux-amd64.tar.gz && \
-    mv grafana-10.3.3/bin/grafana-cli /usr/local/bin/ && rm -rf grafana-10.3.3*
-
-## Fluentd (gem)
-RUN gem install fluentd
-
 ## HashiCorp Vault
 RUN wget https://releases.hashicorp.com/vault/1.15.3/vault_1.15.3_linux_amd64.zip && \
     unzip vault_1.15.3_linux_amd64.zip && \
